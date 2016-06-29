@@ -5,7 +5,7 @@ This example uses [cmmn-js](https://github.com/bpmn-io/cmmn-js) and [cmmn-js-pro
 
 ## About
 
-This example is a node-style web application that builds an user interface around the cmmn-js CMMN 1.0 modeler.
+This example is a node-style web application that builds an user interface around the cmmn-js CMMN 1.1 modeler.
 
 ![demo application screenshot](https://raw.githubusercontent.com/bpmn-io/cmmn-js-examples/master/cmmn-properties-panel/docs/screenshot.png "Screenshot of the modeler + properties panel example")
 
