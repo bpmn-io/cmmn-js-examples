@@ -3,6 +3,10 @@
   "version": "0.0.0",
   "description": "A cmmn-js modeler + properties panel example",
   "main": "app/index.js",
+  "scripts": {
+    "all": "grunt",
+    "dev": "grunt auto-build"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/bpmn-io/cmmn-js-examples"
@@ -25,6 +29,7 @@
     "brfs": "^1.2.0",
     "grunt": "~1.0.1",
     "grunt-browserify": "^5.0.0",
+    "grunt-cli": "^1.2.0",
     "grunt-contrib-connect": "~1.0.2",
     "grunt-contrib-copy": "~1.0.0",
     "grunt-contrib-jshint": "~1.0.0",
@@ -33,11 +38,11 @@
     "load-grunt-tasks": "~3.5.0"
   },
   "dependencies": {
-    "cmmn-js": "^0.5.3",
-    "cmmn-js-properties-panel": "^0.2.0",
-    "camunda-cmmn-moddle": "^0.1.2",
-    "diagram-js": "^0.16.0",
-    "jquery": "^2.1.1",
+    "camunda-cmmn-moddle": "^1.0.0",
+    "cmmn-js": "^0.9.2",
+    "cmmn-js-properties-panel": "^0.3.1",
+    "diagram-js": "^0.28.1",
+    "jquery": "^3.3.1",
     "lodash": "^3.0.0"
   }
 }

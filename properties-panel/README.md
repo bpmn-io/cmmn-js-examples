@@ -7,7 +7,7 @@ This example uses [cmmn-js](https://github.com/bpmn-io/cmmn-js) and [cmmn-js-pro
 
 This example is a node-style web application that builds an user interface around the cmmn-js CMMN 1.1 modeler.
 
-![demo application screenshot](https://raw.githubusercontent.com/bpmn-io/cmmn-js-examples/master/cmmn-properties-panel/docs/screenshot.png "Screenshot of the modeler + properties panel example")
+![demo application screenshot](./resources/screenshot.png "Screenshot of the modeler + properties panel example")
 
 
 ## Usage
@@ -24,7 +24,7 @@ Additionally, if you'd like to use [Camunda BPM](https://camunda.org) execution 
 npm install --save camunda-cmmn-moddle
 ```
 
-Now extend the [cmmn-js](https://github.com/bpmm-io/cmmn-js) modeler with two properties panel related modules, the panel itself and a provider module that controls which properties are visible for each element. Additionally you must pass an element via `propertiesPanel.parent` into which the properties panel will be rendered (cf. [`app/index.js`](https://github.com/bpmn-io/cmmn-js-examples/blob/master/cmmn-properties-panel/app/index.js#L16) for details).
+Now extend the [cmmn-js](https://github.com/bpmm-io/cmmn-js) modeler with two properties panel related modules, the panel itself and a provider module that controls which properties are visible for each element. Additionally you must pass an element via `propertiesPanel.parent` into which the properties panel will be rendered (cf. [`app/index.js`](./app/index.js#L16) for details).
 
 ```javascript
 var propertiesPanelModule = require('cmmn-js-properties-panel'),
@@ -51,7 +51,7 @@ var bpmnModeler = new BpmnModeler({
 
 ## Building the Example
 
-You need a [NodeJS](http://nodejs.org) development stack with [npm](https://npmjs.org) and [grunt](http://gruntjs.com) installed to build the project.
+You need a [NodeJS](http://nodejs.org) development stack with [npm](https://npmjs.org) installed to build the project.
 
 To install all project dependencies execute
 
@@ -62,13 +62,13 @@ npm install
 Build the example using [browserify](http://browserify.org) via
 
 ```
-grunt
+npm run all
 ```
 
 You may also spawn a development setup by executing
 
 ```
-grunt auto-build
+npm run dev
 ```
 
 Both tasks generate the distribution ready client-side modeler application into the `dist` folder.
