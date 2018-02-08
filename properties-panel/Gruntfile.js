@@ -64,21 +64,13 @@ module.exports = function(grunt) {
     },
 
     copy: {
-      diagram_js: {
-        files: [
-          {
-            src: resolvePath('diagram-js', 'assets/diagram-js.css'),
-            dest: '<%= config.dist %>/css/diagram-js.css'
-          }
-        ]
-      },
       cmmn_js: {
         files: [
           {
             expand: true,
-            cwd: resolvePath('cmmn-js', 'assets'),
+            cwd: resolvePath('cmmn-js', 'dist/'),
             src: ['**/*.*', '!**/*.js'],
-            dest: '<%= config.dist %>/vendor'
+            dest: '<%= config.dist %>/vendor/cmmn-js/'
           }
         ]
       },
