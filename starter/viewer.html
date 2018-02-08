@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+
+    <!-- viewer distro -->
+    <script src="https://unpkg.com/cmmn-js@0.10.0/dist/cmmn-viewer.development.js"></script>
+
+    <!-- needed for this example only -->
+    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
+
+    <!-- example styles -->
+    <style>
+      html, body, #canvas {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      .diagram-note {
+        background-color: rgba(66, 180, 21, 0.7);
+        color: White;
+        border-radius: 5px;
+        font-family: Arial;
+        font-size: 12px;
+        padding: 5px;
+        min-height: 16px;
+        width: 50px;
+        text-align: center;
+      }
+
+      .needs-discussion:not(.djs-connection) .djs-visual > :nth-child(1) {
+        stroke: rgba(66, 180, 21, 0.7) !important; /* color elements as red */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="canvas"></div>
+
+    <script>
+
+      var diagramUrl = 'https://cdn.rawgit.com/bpmn-io/cmmn-js-examples/dfceecba/starter/diagram.cmmn';
+
+      // viewer instance
+      var cmmnViewer = new CmmnJS({
+        container: '#canvas'
+      });
+
+
+      /**
+       * Open diagram in our viewer instance.
+       *
+       * @param {String} cmmnXML diagram to display
+       */
+      function openDiagram(cmmnXML) {
+
+        // import diagram
+        cmmnViewer.importXML(cmmnXML, function(err) {
+
+          if (err) {
+            return console.error('could not import CMMN 2.0 diagram', err);
+          }
+
+          // access viewer components
+          var canvas = cmmnViewer.get('canvas');
+          var overlays = cmmnViewer.get('overlays');
+
+
+          // zoom to fit full viewport
+          canvas.zoom('fit-viewport');
+
+          // attach an overlay to a node
+          overlays.add('SCAN_OK', 'note', {
+            position: {
+              bottom: 0,
+              right: 0
+            },
+            html: '<div class="diagram-note">Mixed up the labels?</div>'
+          });
+
+          // add marker
+          canvas.addMarker('SCAN_OK', 'needs-discussion');
+        });
+      }
+
+
+      // load external diagram file via AJAX and open it
+      $.get(diagramUrl, openDiagram, 'text');
+    </script>
+    <!--
+      Thanks for trying out our CMMN toolkit!
+
+      Related starters:
+      * https://raw.githubusercontent.com/bpmn-io/cmmn-js-examples/starter/modeler.html
+    -->
+  </body>
+</html>

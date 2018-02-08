@@ -1,0 +1,41 @@
+{
+  "name": "cmmn-js-example-commonjs",
+  "version": "0.0.0",
+  "description": "An example how to use cmmn-js with CommonJS + npm + browserify",
+  "main": "app/app.js",
+  "scripts": {
+    "all": "run-s bundle open",
+    "bundle": "browserify src/app.js -t brfs -o public/app.bundled.js",
+    "bundle:watch": "watchify src/app.js -t brfs -o public/app.bundled.js -v",
+    "open": "opn ./public/index.html",
+    "dev": "npm run bundle:watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cmmn-io/cmmn-js-examples"
+  },
+  "keywords": [
+    "cmmnjs-example"
+  ],
+  "author": {
+    "name": "Nico Rehwaldt",
+    "url": "https://github.com/nikku"
+  },
+  "contributors": [
+    {
+      "name": "bpmn.io contributors",
+      "url": "https://github.com/cmmn-io"
+    }
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "brfs": "^1.4.4",
+    "browserify": "^15.2.0",
+    "npm-run-all": "^4.1.2",
+    "opn-cli": "^3.1.0",
+    "watchify": "^3.10.0"
+  },
+  "dependencies": {
+    "cmmn-js": "^0.10.0"
+  }
+}
