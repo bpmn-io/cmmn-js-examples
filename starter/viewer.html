@@ -26,7 +26,7 @@
         font-size: 12px;
         padding: 5px;
         min-height: 16px;
-        width: 50px;
+        width: 65px;
         text-align: center;
       }
 
@@ -71,16 +71,16 @@
           canvas.zoom('fit-viewport');
 
           // attach an overlay to a node
-          overlays.add('SCAN_OK', 'note', {
+          overlays.add('PI_6f0ede2a-df0c-4360-90e0-91952ebfa143', 'note', {
             position: {
-              bottom: 0,
-              right: 0
+              top: -5,
+              right: -5
             },
-            html: '<div class="diagram-note">Mixed up the labels?</div>'
+            html: '<div class="diagram-note">Is this really repeatable?</div>'
           });
 
           // add marker
-          canvas.addMarker('SCAN_OK', 'needs-discussion');
+          canvas.addMarker('PI_6f0ede2a-df0c-4360-90e0-91952ebfa143', 'needs-discussion');
         });
       }
 
