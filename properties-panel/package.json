@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "camunda-cmmn-moddle": "^1.0.0",
-    "cmmn-js": "^0.10.4",
+    "cmmn-js": "^0.10.5",
     "cmmn-js-properties-panel": "^0.4.0",
     "jquery": "^3.3.1",
     "lodash": "^3.0.0"
