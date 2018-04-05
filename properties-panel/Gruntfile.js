@@ -1,10 +1,8 @@
-'use strict';
+var path = require('path');
 
 module.exports = function(grunt) {
 
   require('load-grunt-tasks')(grunt);
-
-  var path = require('path');
 
   /**
    * Resolve external project resource as file path
@@ -13,52 +11,33 @@ module.exports = function(grunt) {
     return path.join(path.dirname(require.resolve(project)), file);
   }
 
-  // project configuration
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
-
-    config: {
-      sources: 'app',
-      dist: 'dist'
-    },
-
-    jshint: {
-      src: [
-        ['<%=config.sources %>']
-      ],
-      options: {
-        jshintrc: true
-      }
-    },
 
     browserify: {
       options: {
         browserifyOptions: {
-          debug: true,
-          list: true,
-          // make sure we do not include browser shims unnecessarily
-          insertGlobalVars: {
-            process: function () {
-              return 'undefined';
-            },
-            Buffer: function () {
-              return 'undefined';
-            }
-          }
+          debug: true
         },
-        transform: [ 'brfs' ]
+        transform: [
+          [ 'stringify', {
+            extensions: [ '.cmmn' ]
+          } ],
+          [ 'babelify', {
+            global: true
+          } ]
+        ]
       },
       watch: {
         options: {
           watch: true
         },
         files: {
-          '<%= config.dist %>/index.js': [ '<%= config.sources %>/**/*.js' ]
+          'dist/index.js': [ 'app/**/*.js' ]
         }
       },
       app: {
         files: {
-          '<%= config.dist %>/index.js': [ '<%= config.sources %>/**/*.js' ]
+          'dist/index.js': [ 'app/**/*.js' ]
         }
       }
     },
@@ -70,7 +49,7 @@ module.exports = function(grunt) {
             expand: true,
             cwd: resolvePath('cmmn-js', 'dist/'),
             src: ['**/*.*', '!**/*.js'],
-            dest: '<%= config.dist %>/vendor/cmmn-js/'
+            dest: 'dist/vendor/cmmn-js/'
           }
         ]
       },
@@ -78,9 +57,9 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            cwd: '<%= config.sources %>/',
+            cwd: 'app/',
             src: ['**/*.*', '!**/*.js'],
-            dest: '<%= config.dist %>'
+            dest: 'dist'
           }
         ]
       }
@@ -107,7 +86,7 @@ module.exports = function(grunt) {
       },
 
       samples: {
-        files: [ '<%= config.sources %>/**/*.*' ],
+        files: [ 'app/**/*.*' ],
         tasks: [ 'copy:app' ]
       },
 
@@ -130,7 +109,7 @@ module.exports = function(grunt) {
           hostname: 'localhost',
           open: true,
           base: [
-            '<%= config.dist %>'
+            'dist'
           ]
         }
       }
@@ -149,5 +128,5 @@ module.exports = function(grunt) {
     'watch'
   ]);
 
-  grunt.registerTask('default', [ 'jshint', 'build' ]);
+  grunt.registerTask('default', [ 'build' ]);
 };

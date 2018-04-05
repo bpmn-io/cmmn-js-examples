@@ -1,20 +1,22 @@
-'use strict';
+import $ from 'jquery';
 
-var fs = require('fs');
+import CmmnModeler from 'cmmn-js/lib/Modeler';
 
-var $ = require('jquery'),
-    BpmnModeler = require('cmmn-js/lib/Modeler');
+import propertiesPanelModule from 'cmmn-js-properties-panel';
+import propertiesProviderModule from 'cmmn-js-properties-panel/lib/provider/camunda';
+import camundaModdleDescriptor from 'camunda-cmmn-moddle/resources/camunda';
 
-var propertiesPanelModule = require('cmmn-js-properties-panel'),
-    propertiesProviderModule = require('cmmn-js-properties-panel/lib/provider/camunda'),
-    camundaModdleDescriptor = require('camunda-cmmn-moddle/resources/camunda');
+import {
+  debounce
+} from 'min-dash';
+
+import newDiagramXML from '../resources/newDiagram.cmmn';
+
 
 var container = $('#js-drop-zone');
 
-var canvas = $('#js-canvas');
-
-var bpmnModeler = new BpmnModeler({
-  container: canvas,
+var cmmnModeler = new CmmnModeler({
+  container: '#js-canvas',
   propertiesPanel: {
     parent: '#js-properties-panel'
   },
@@ -27,15 +29,13 @@ var bpmnModeler = new BpmnModeler({
   }
 });
 
-var newDiagramXML = fs.readFileSync(__dirname + '/../resources/newDiagram.cmmn', 'utf-8');
-
 function createNewDiagram() {
   openDiagram(newDiagramXML);
 }
 
 function openDiagram(xml) {
 
-  bpmnModeler.importXML(xml, function(err) {
+  cmmnModeler.importXML(xml, function(err) {
 
     if (err) {
       container
@@ -56,12 +56,12 @@ function openDiagram(xml) {
 }
 
 function saveSVG(done) {
-  bpmnModeler.saveSVG(done);
+  cmmnModeler.saveSVG(done);
 }
 
 function saveDiagram(done) {
 
-  bpmnModeler.saveXML({ format: true }, function(err, xml) {
+  cmmnModeler.saveXML({ format: true }, function(err, xml) {
     done(err, xml);
   });
 }
@@ -145,8 +145,6 @@ $(function() {
     }
   }
 
-  var debounce = require('lodash/function/debounce');
-
   var exportArtifacts = debounce(function() {
 
     saveSVG(function(err, svg) {
@@ -158,5 +156,5 @@ $(function() {
     });
   }, 500);
 
-  bpmnModeler.on('commandStack.changed', exportArtifacts);
+  cmmnModeler.on('commandStack.changed', exportArtifacts);
 });
