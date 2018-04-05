@@ -1,10 +1,5 @@
-'use strict';
-
-// we use fs + brfs to inline an example XML document
-var fs = require('fs');
-
-// inlined in result file via brfs
-var claimsDiagram = fs.readFileSync(require.resolve('../resources/claims.cmmn'), 'utf-8');
+// we use stringify to inline an example XML document
+import claimsDiagram from '../resources/claims.cmmn';
 
 
 // require the viewer, make sure you added it to your project
