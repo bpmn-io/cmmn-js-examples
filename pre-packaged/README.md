@@ -18,7 +18,7 @@ Download or simply include the relevant dependencies into your website:
 #### Viewer
 
 ```html
-<script src="https://unpkg.com/cmmn-js@0.17.1/dist/cmmn-viewer.development.js"></script>
+<script src="https://unpkg.com/cmmn-js@0.18.0/dist/cmmn-viewer.development.js"></script>
 ```
 
 Download the complete [viewer example](https://rawgit.com/bpmn-io/cmmn-js-examples/master/starter/viewer.html).
@@ -27,10 +27,10 @@ Download the complete [viewer example](https://rawgit.com/bpmn-io/cmmn-js-exampl
 
 ```html
 <!-- necessary stylesheets -->
-<link rel="stylesheet" href="https://unpkg.com/cmmn-js@0.17.1/dist/assets/diagram-js.css" />
-<link rel="stylesheet" href="https://unpkg.com/cmmn-js@0.17.1/dist/assets/cmmn-font/css/cmmn.css" />
+<link rel="stylesheet" href="https://unpkg.com/cmmn-js@0.18.0/dist/assets/diagram-js.css" />
+<link rel="stylesheet" href="https://unpkg.com/cmmn-js@0.18.0/dist/assets/cmmn-font/css/cmmn.css" />
 
-<script src="https://unpkg.com/cmmn-js@0.17.1/dist/cmmn-modeler.development.js"></script>
+<script src="https://unpkg.com/cmmn-js@0.18.0/dist/cmmn-modeler.development.js"></script>
 ```
 
 Download the complete [modeler example](https://rawgit.com/bpmn-io/cmmn-js-examples/master/starter/modeler.html).
