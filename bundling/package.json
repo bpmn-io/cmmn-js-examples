@@ -39,6 +39,6 @@
     "watchify": "^3.10.0"
   },
   "dependencies": {
-    "cmmn-js": "^0.18.0"
+    "cmmn-js": "^0.18.1"
   }
 }
