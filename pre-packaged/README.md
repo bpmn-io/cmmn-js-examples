@@ -21,7 +21,7 @@ Download or simply include the relevant dependencies into your website:
 <script src="https://unpkg.com/cmmn-js@0.19.2/dist/cmmn-viewer.development.js"></script>
 ```
 
-Download the complete [viewer example](https://rawgit.com/bpmn-io/cmmn-js-examples/master/starter/viewer.html).
+Download the complete [viewer example](https://cdn.staticaly.com/gh/bpmn-io/cmmn-js-examples/master/starter/viewer.html).
 
 #### Modeler
 
@@ -33,7 +33,7 @@ Download the complete [viewer example](https://rawgit.com/bpmn-io/cmmn-js-exampl
 <script src="https://unpkg.com/cmmn-js@0.19.2/dist/cmmn-modeler.development.js"></script>
 ```
 
-Download the complete [modeler example](https://rawgit.com/bpmn-io/cmmn-js-examples/master/starter/modeler.html).
+Download the complete [modeler example](https://cdn.staticaly.com/gh/bpmn-io/cmmn-js-examples/master/starter/modeler.html).
 
 
 ## Use the Library
