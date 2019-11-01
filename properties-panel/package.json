@@ -44,6 +44,6 @@
     "cmmn-js": "^0.19.2",
     "cmmn-js-properties-panel": "^0.5.0",
     "jquery": "^3.3.1",
-    "lodash": "^3.0.0"
+    "lodash": "^4.17.15"
   }
 }
