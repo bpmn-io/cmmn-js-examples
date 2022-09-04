@@ -2,10 +2,38 @@ import LegacyModeler from "cmmn-js/lib/Modeler";
 import LegacyViewer from "cmmn-js/lib/Viewer";
 
 /**
+ * @see LegacyModeler
+ * @see LegacyViewer
+ * 
  * Make the Modeler compatible with Typescript, as ES5 inheritance via prototype cant be typed.
  * Also transforms the (used) api into Promises, for easier handling.
  */
-export class CmmnModeler extends LegacyModeler {
+export class CmmnModeler {
+
+    private legacyModeler: LegacyModeler;
+
+    /**
+     * @see LegacyModeler
+     * 
+     * @param options configuration options to pass to the viewer
+     * @param options.container the container to attach to
+     * @param options.width the width of the viewer
+     * @param options.height the height of the viewer
+     * @param options.moddleExtensions extension packages to provide
+     * @param options.modules a list of modules to override the default modules
+     * @param options.additionalModules a list of modules to use with the default modules
+     */
+    constructor(options?: {
+        container?: HTMLElement|string,
+        width?: string|number,
+        heigt?: string|number,
+        moddleExtensions?: object,
+        modules?: any[],
+        additionalModules?: any[],
+    }) {
+        this.legacyModeler = new LegacyModeler(options);
+    }
+
     /**
      * @see {LegacyViewer.importXML}
      * 
@@ -13,7 +41,8 @@ export class CmmnModeler extends LegacyModeler {
      */
     importXML(xml: string): Promise<void> {
         return new Promise((resolve, reject) => {
-            LegacyModeler.prototype.importXML.call(this, xml, (error) => error
+            /** @ts-expect-error */
+            this.legacyModeler.importXML(xml, (error) => error
                 ? reject(error)
                 : resolve()
             )
@@ -29,7 +58,8 @@ export class CmmnModeler extends LegacyModeler {
      */
     saveXML(options?: { format?: boolean, preamble?: boolean }): Promise<string> {
         return new Promise((resolve, reject) => {
-            LegacyModeler.prototype.saveXML.call(this, options, (error, result) => error
+            /** @ts-expect-error */
+            this.legacyModeler.saveXML(options, (error, result) => error
                 ? reject(error)
                 : resolve(result)
             )
@@ -41,7 +71,8 @@ export class CmmnModeler extends LegacyModeler {
      */
     saveSVG(): Promise<string> {
         return new Promise((resolve, reject) => {
-            LegacyModeler.prototype.saveSVG.call(this, (error, result) => error
+            /** @ts-expect-error */
+            this.legacyModeler.saveSVG((error, result) => error
                 ? reject(error)
                 : resolve(result)
             )
