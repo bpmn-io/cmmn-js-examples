@@ -2,7 +2,7 @@ import esbuild from "esbuild";
 
 esbuild.build({
     entryPoints: [
-        "./src/main.js",
+        "./src/main.ts",
         "./src/main.css",
         "./src/index.html",
     ],
