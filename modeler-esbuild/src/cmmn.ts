@@ -39,12 +39,12 @@ export class CmmnModeler {
      * 
      * @param xml the CMMN 1.1 xml
      */
-    importXML(xml: string): Promise<void> {
+    importXML(xml: string): Promise<{warnings: string[]}> {
         return new Promise((resolve, reject) => {
             /** @ts-expect-error */
-            this.legacyModeler.importXML(xml, (error) => error
+            this.legacyModeler.importXML(xml, (error, allWarnings) => error
                 ? reject(error)
-                : resolve()
+                : resolve({warnings: allWarnings})
             )
         })
     }
