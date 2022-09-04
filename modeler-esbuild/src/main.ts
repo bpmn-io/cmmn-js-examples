@@ -21,12 +21,12 @@ const downloadSvgLink = document.getElementById("js-download-svg")!;
 
 downloadCmmnLink.addEventListener("click", async (e) => {
   e.preventDefault();
-  const cmmnContents = await cmmnModeler.saveXML({ format: true })
-  saveAs(new Blob([cmmnContents], {type:"application/cmmn11-xml;charset=UTF-8"}), "diagram.cmmn")
+  const { xml } = await cmmnModeler.saveXML({ format: true })
+  saveAs(new Blob([xml], {type:"application/cmmn11-xml;charset=UTF-8"}), "diagram.cmmn")
 });
 
 downloadSvgLink.addEventListener("click", async (e) => {
   e.preventDefault();
-  const svgContents = await cmmnModeler.saveSVG()
-  saveAs(new Blob([svgContents], {type:"image/svg+xml;charset=utf-8"}), "diagram.svg")
+  const { svg } = await cmmnModeler.saveSVG()
+  saveAs(new Blob([svg], {type:"image/svg+xml;charset=utf-8"}), "diagram.svg")
 });
