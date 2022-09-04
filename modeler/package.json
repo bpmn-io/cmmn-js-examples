@@ -1,0 +1,36 @@
+{
+  "name": "cmmn-js-example-esbuild",
+  "version": "0.0.0",
+  "description": "A cmmn-js modeler esbuild example",
+  "main": "app/index.js",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bpmn-io/cmmn-js-examples"
+  },
+  "keywords": [
+    "cmmnjs-example",
+    "esbuild"
+  ],
+  "author": {
+    "name": "Marc Henry Schultz",
+    "url": "https://github.com/mhsdesign"
+  },
+  "contributors": [
+    {
+      "name": "bpmn.io contributors",
+      "url": "https://github.com/bpmn-io"
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "cmmn-js": "^0.20.0",
+    "file-saver": "^2.0.5",
+    "lodash.debounce": "^4.0.8"
+  },
+  "devDependencies": {
+    "esbuild": "^0.15.6"
+  }
+}
